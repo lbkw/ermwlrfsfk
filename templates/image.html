@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta property="og:title" content="ip grabber dont click on the url!!!">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="http://diorscooked.lol/u/{{ random_string }}.png">
+    <meta property="og:url" content="http://diorscooked.lol/i/{{ random_string }}">
+    <meta name="theme-color" content="#0d0d0d" />
+    <meta name="twitter:card" content="summary_large_image">
+    <title>{{ image_name }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/3/3.0.0/iconify.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #080808;
+            color: #fff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: rgba(19, 19, 19, 0.85);
+            border: 2px solid #18181B;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+        .container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 10px;
+            transition: transform 0.4s ease;
+        }
+        .container img:hover {
+            transform: scale(1.2);
+        }
+        .container a {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: rgba(19, 19, 19, 0.85);
+            border: 2px solid #18181B;
+            color: #fff;
+            padding: 10px 30px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .container a:hover {
+            background-color: #1e90ff;
+            transform: translateY(-3px);
+        }
+        .icon {
+            font-size: 20px;
+        }
+        h1 {
+            font-size: 28px;
+            background: linear-gradient(to top, #5a5a5a, #d3d3d3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            text-shadow: 0px 0px 15px rgba(85, 85, 85, 0.5);
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 18px;
+            font-weight: bold;
+            background: linear-gradient(to top, #363636, #d3d3d3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            text-shadow: 0px 0px 15px rgba(85, 85, 85, 0.5);
+            margin: 10px 0;
+        }
+
+        .yellow-gradient {
+            font-weight: bold;
+            background: linear-gradient(to top, #FFD700, #FFEC8B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        .pink-gradient {
+            font-weight: bold;
+            background: linear-gradient(to top, #FF69B4, #FFB6C1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        .blurple-gradient {
+            font-weight: bold;
+            background: linear-gradient(to top, #7289DA, #5865F2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        .line-md--download-loop {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.95'%3E%3Cpath fill='white' fill-opacity='0' stroke-dasharray='20' stroke-dashoffset='20' d='M12 4h2v6h2.5l-4.5 4.5M12 4h-2v6h-2.5l4.5 4.5'%3E%3Canimate attributeName='d' begin='0.5s' dur='1.5s' repeatCount='indefinite' values='M12 4h2v6h2.5l-4.5 4.5M12 4h-2v6h-2.5l4.5 4.5;M12 4h2v3h2.5l-4.5 4.5M12 4h-2v3h-2.5l4.5 4.5;M12 4h2v6h2.5l-4.5 4.5M12 4h-2v6h-2.5l4.5 4.5'/%3E%3Canimate fill='freeze' attributeName='fill-opacity' begin='0.7s' dur='0.5s' values='0;1'/%3E%3Canimate fill='freeze' attributeName='stroke-dashoffset' dur='0.4s' values='20;0'/%3E%3C/path%3E%3Cpath stroke-dasharray='14' stroke-dashoffset='14' d='M6 19h12'%3E%3Canimate fill='freeze' attributeName='stroke-dashoffset' begin='0.5s' dur='0.2s' values='14;0'/%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ image_name }}</h1>
+        <p>Uploaded by: <strong id="username" class="yellow-gradient">{{ uploader }}</strong></p>
+        <img src="http://diorscooked.lol/u/{{ random_string }}.png" alt="Uploaded image preview">
+        <a href="http://diorscooked.lol/u/{{ random_string }}.png" target="_blank" rel="noopener noreferrer">
+            <span class="line-md--download-loop"></span>
+            View Raw
+        </a>
+    </div>
+    <script>
+        const usernameElement = document.getElementById('username');
+        const username = usernameElement.textContent.trim().toLowerCase();
+
+        if (username === 'skip' || username === 'yau') {
+            usernameElement.className = 'yellow-gradient';
+        } else if (username === 'bloob') {
+            usernameElement.className = 'pink-gradient';
+        } else if (username === 'velt') {
+            usernameElement.className = 'blurple-gradient';
+        } else {
+            usernameElement.className = '';
+            usernameElement.style.color = '#fff';
+        }
+    </script>
+</body>
+</html>
