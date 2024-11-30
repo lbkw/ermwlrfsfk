@@ -42,16 +42,13 @@ def upload_file():
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], f"{random_string}.png")
         file.save(filepath)
 
-        # Dynamic variables to pass to template
-        uploaded_image_name = f"{random_string}.png"
-        uploader_name = "dior"  # You can modify this based on the user's input or authentication
+        # Return the URL of the uploaded image as a JSON response
+        image_url = f'http://{request.host}/u/{random_string}.png'
 
-        return render_template('image.html', 
-                               image_name=uploaded_image_name, 
-                               uploader=uploader_name,
-                               random_string=random_string), 200
+        return jsonify({'image_url': image_url}), 200
 
     return jsonify({'error': 'Invalid file type. Only PNGs are allowed.'}), 400
+
 
 @app.route('/i/<random_string>')
 def serve_image(random_string):
