@@ -1,0 +1,7 @@
+Flask>=2.1.0
+Flask-SQLAlchemy>=2.5.0   # If using a database
+Flask-WTF>=1.0.0          # If using forms for file uploads
+Flask-Cors>=3.1.1         # If handling CORS
+Flask-Uploads>=1.0.5      # If using Flask-Uploads for file management
+gunicorn>=20.1.0         # For production WSGI server
+python-dotenv>=0.19.2    # For managing environment variables
