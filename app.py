@@ -42,8 +42,14 @@ def upload_file():
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], f"{random_string}.png")
         file.save(filepath)
 
-        # Return a URL to the uploaded image
-        return jsonify({'url': f"http://diorscooked.lol/i/{random_string}"}), 200
+        # Dynamic variables to pass to template
+        uploaded_image_name = f"{random_string}.png"
+        uploader_name = "dior"  # You can modify this based on the user's input or authentication
+
+        return render_template('image.html', 
+                               image_name=uploaded_image_name, 
+                               uploader=uploader_name,
+                               random_string=random_string), 200
 
     return jsonify({'error': 'Invalid file type. Only PNGs are allowed.'}), 400
 
@@ -51,11 +57,15 @@ def upload_file():
 def serve_image(random_string):
     image_path = os.path.join(app.config['UPLOAD_FOLDER'], f"{random_string}.png")
     if os.path.exists(image_path):
-        # Serve the image
-        return render_template('image.html', image_url=f"http://diorscooked.lol/u/{random_string}.png")
+        # Serve the uploaded image in the HTML format
+        uploaded_image_name = f"{random_string}.png"
+        uploader_name = "dior"  # You can modify this based on your user data
+        return render_template('image.html', 
+                               image_name=uploaded_image_name, 
+                               uploader=uploader_name,
+                               random_string=random_string), 200
     else:
         return jsonify({'error': 'Image not found.'}), 404
 
-# Start the Flask app (you can also use Gunicorn to serve it in production)
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=80)  # Listen on port 80
+    app.run(debug=True, host='0.0.0.0', port=80)
